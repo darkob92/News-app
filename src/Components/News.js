@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './news.css'
 
 class News extends Component {
   constructor() {
@@ -17,10 +18,14 @@ class News extends Component {
 
   render() {
     return (
-      <div>
-        <h2 className='text-primary'>More News</h2>
-          {this.state.news.map(article => 
-            <p key={Math.floor(Math.random() * 1000)}>{ article.author } {article.title}</p>
+      <div className='grid-container'>
+          {this.state.news.map(article =>
+            <div className='article'>
+              <img className='article-img' src={article.urlToImage}></img>
+              <h4 key={Math.floor(Math.random() * 1000)}>{article.title}</h4>
+              <p>{article.author}</p>
+              <p><a href={article.url}>{article.url}</a></p>
+            </div>
           )}
       </div>
     )
