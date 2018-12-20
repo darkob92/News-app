@@ -20,11 +20,11 @@ class News extends Component {
     return (
       <div className='grid-container'>
           {this.state.news.map(article =>
-            <div className='article'>
-              <img className='article-img' src={article.urlToImage}></img>
-              <h4 key={Math.floor(Math.random() * 1000)}>{article.title}</h4>
-              <p>{article.author}</p>
-              <p><a href={article.url}>{article.url}</a></p>
+            <div className='article' key={Math.floor(Math.random() * 1000)}>
+              <img alt='unknown' className='article__img' src={article.urlToImage}></img>
+              <h4><a href={article.url}>{article.title}</a></h4>
+              <p className='article__author'>{article.author === null ? "unknown author" : article.author}</p> 
+              <p className='article__url'><a href={article.url}>{article.url}</a></p>   
             </div>
           )}
       </div>
